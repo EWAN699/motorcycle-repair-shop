@@ -9763,3 +9763,57 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+/* RTL and Elidor Motors custom theme */
+html { direction: rtl; }
+body {
+  text-align: right;
+  background: #eeeeef;
+  color: #080002;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --primary: #ea002f;
+  --dark: #080002;
+  --light: #eeeeef;
+}
+.btn-primary,
+.bg-primary,
+.owl-theme .owl-dots .owl-dot.active span,
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link.btn-primary {
+  background: #ea002f !important;
+  border-color: #ea002f !important;
+}
+.btn-primary:hover,
+.btn-outline-primary:hover {
+  background: #c40029 !important;
+  border-color: #c40029 !important;
+}
+.btn-outline-primary {
+  color: #ea002f;
+  border-color: #ea002f;
+}
+.navbar,
+.bg-dark {
+  background: #080002 !important;
+}
+.hero-wrap .overlay,
+.hero-wrap-2 .overlay {
+  background: linear-gradient(270deg, rgba(8,0,2,0.75), rgba(8,0,2,0.45));
+}
+.navbar-nav { flex-direction: row-reverse; }
+.navbar-nav .nav-link { padding: 0 15px; }
+.brand-logo { height: 48px; }
+.brand-title { color: #ea002f; font-weight: 700; display: block; }
+.brand-sub { color: #eeeeef; }
+.top-wrap .text span { display: block; }
+.form-control, .custom-select { text-align: right; }
+.ftco-footer-widget .fa-check { margin-left: 8px; }
+.sale-details li { color: #080002; margin-bottom: 4px; }
+.testimony-section { background: #080002; color: #eeeeef; }
+.testimony-section .icon span { color: #ea002f; }
+.footer { background: #080002; color: #eeeeef; }
+.footer a { color: #ea002f; }
+.footer a:hover { color: #c40029; }
+.intro .bg-primary { background: #ea002f !important; }
+.work .desc { background: rgba(8,0,2,0.65); }
