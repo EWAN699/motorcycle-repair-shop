@@ -1,0 +1,20 @@
+{
+  "name": "elidor-motors-site",
+  "version": "1.0.0",
+  "description": "Static RTL Hebrew site for אלידור מוטורס with lightweight animation config and local server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["motorcycle", "rtl", "hebrew", "static", "bootstrap"],
+  "author": "אלידור מוטורס",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
