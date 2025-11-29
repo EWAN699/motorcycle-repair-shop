@@ -1,0 +1,45 @@
+{
+  "global": {
+    "overlayOpacity": 0.72,
+    "buttonHover": "pulse"
+  },
+  "elements": [
+    {
+      "selector": ".hero-wrap .text",
+      "effect": "fadeInRight",
+      "delay": 0
+    },
+    {
+      "selector": ".intro-box, .intro .btn-custom",
+      "effect": "fadeInUp",
+      "delay": 80
+    },
+    {
+      "selector": ".services .d-block, #bikes-for-sale .heading-section",
+      "effect": "fadeInUp",
+      "delay": 120
+    },
+    {
+      "selector": ".staff",
+      "effect": "fadeInUp",
+      "delay": 150
+    },
+    {
+      "selector": ".work",
+      "effect": "fadeIn",
+      "delay": 100
+    },
+    {
+      "selector": "footer .ftco-footer-widget",
+      "effect": "fadeInUp",
+      "delay": 120
+    }
+  ],
+  "buttons": [
+    {
+      "selector": "a.btn, .btn-custom, input[type=submit].btn",
+      "effect": "fadeInUp",
+      "delay": 60
+    }
+  ]
+}

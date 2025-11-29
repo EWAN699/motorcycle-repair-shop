@@ -33,54 +33,96 @@
 	};
 	loader();
 
-  var carousel = function() {
-		$('.home-slider').owlCarousel({
-	    loop:true,
-	    autoplay: true,
-	    margin:0,
-	    animateOut: 'fadeOut',
-	    animateIn: 'fadeIn',
-	    nav:true,
-	    dots: true,
-	    autoplayHoverPause: false,
-	    items: 1,
-	    navText : ["<span class='ion-ios-arrow-back'></span>","<span class='ion-ios-arrow-forward'></span>"],
-	    responsive:{
-	      0:{
-	        items:1
-	      },
-	      600:{
-	        items:1
-	      },
-	      1000:{
-	        items:1
-	      }
-	    }
-		});
+        var carousel = function() {
+                $('.home-slider').owlCarousel({
+                        loop:true,
+                        autoplay: true,
+                        margin:0,
+                        animateOut: 'fadeOut',
+                        animateIn: 'fadeIn',
+                        nav:true,
+                        dots: true,
+                        autoplayHoverPause: false,
+                        items: 1,
+                        navText : ["<span class='ion-ios-arrow-back'></span>","<span class='ion-ios-arrow-forward'></span>"],
+                        responsive:{
+                          0:{
+                            items:1
+                          },
+                          600:{
+                            items:1
+                          },
+                          1000:{
+                            items:1
+                          }
+                        }
+                });
 
-		$('.carousel-testimony').owlCarousel({
-			center: true,
-			loop: true,
-			items:1,
-			margin: 30,
-			stagePadding: 0,
-			nav: false,
-			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
-			responsive:{
-				0:{
-					items: 1
-				},
-				600:{
-					items: 2
-				},
-				1000:{
-					items: 3
-				}
-			}
-		});
+                $('.carousel-testimony').owlCarousel({
+                        center: true,
+                        loop: true,
+                        items:1,
+                        margin: 30,
+                        stagePadding: 0,
+                        nav: false,
+                        navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+                        responsive:{
+                                0:{
+                                        items: 1
+                                },
+                                600:{
+                                        items: 2
+                                },
+                                1000:{
+                                        items: 3
+                                }
+                        }
+                });
 
-	};
-	carousel();
+        };
+        carousel();
+
+        var applyAnimationConfig = function() {
+                if (!window.fetch) return;
+                fetch('animations.json')
+                        .then(function(res) { return res.json(); })
+                        .then(function(config) {
+                                if (config.global && typeof config.global.overlayOpacity !== 'undefined') {
+                                        $('.hero-wrap .overlay').css('background', 'rgba(8,0,2,' + config.global.overlayOpacity + ')');
+                                }
+                                var registerEffects = function(items) {
+                                        (items || []).forEach(function(item) {
+                                                if (!item.selector) return;
+                                                $(item.selector).each(function() {
+                                                        var $el = $(this);
+                                                        $el.addClass('ftco-animate');
+                                                        if (item.effect) {
+                                                                $el.attr('data-animate-effect', item.effect);
+                                                        }
+                                                        if (item.delay) {
+                                                                $el.css('animation-delay', item.delay + 'ms');
+                                                        }
+                                                });
+                                        });
+                                };
+
+                                registerEffects(config.elements);
+                                registerEffects(config.buttons);
+
+                                if (config.global && config.global.buttonHover) {
+                                        var hoverClass = 'animated ' + config.global.buttonHover;
+                                        $(document).on('mouseenter', 'a.btn, .btn-custom, input[type=submit].btn', function() {
+                                                $(this).addClass(hoverClass);
+                                        }).on('mouseleave', 'a.btn, .btn-custom, input[type=submit].btn', function() {
+                                                $(this).removeClass(hoverClass);
+                                        });
+                                }
+                        })
+                        .catch(function(err) {
+                                console.warn('Animation config not loaded', err);
+                        });
+        };
+        applyAnimationConfig();
 
 	$('nav .dropdown').hover(function(){
 		var $this = $(this);
@@ -198,7 +240,7 @@
 
 		} , { offset: '95%' } );
 	};
-	contentWayPoint();
+contentWayPoint();
 
 
 	$('.appointment_date').datepicker({
